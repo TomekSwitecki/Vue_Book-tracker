@@ -10,7 +10,7 @@ function App() {
   const [search, setSearch] = useState("");
 
   async function handleAddBook(book: NewBook) {
-    const response = await fetch("http://localhost:8081/books", {
+    const response = await fetch("https://javabook-tracker-production.up.railway.app/books", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function App() {
 
   async function handleBookDelete(id: number) {
     try {
-      await fetch(`http://localhost:8081/books/${id}`, {
+      await fetch(`https://javabook-tracker-production.up.railway.app/books/${id}`, {
         method: "DELETE",
       });
     } catch (error) {
@@ -58,7 +58,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch("http://localhost:8081/books")
+    fetch("https://javabook-tracker-production.up.railway.app/books")
       .then((response) => response.json())
       .then((data) => setBooks(data));
   }, []);
