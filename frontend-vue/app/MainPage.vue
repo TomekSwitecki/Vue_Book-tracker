@@ -9,7 +9,7 @@ const search = ref('')
 
 async function handleAddBook(book: Omit<Book, 'id'>) {
   const response = await fetch(
-      'https://javabook-tracker-production.up.railway.app/books',
+      'https://vuebook-tracker-production.up.railway.app/books',
       {
         method: 'POST',
         headers: {
@@ -32,7 +32,7 @@ async function handleAddBook(book: Omit<Book, 'id'>) {
 async function handleBookDelete(id: number) {
   try {
     await fetch(
-        `https://javabook-tracker-production.up.railway.app/books/${id}`,
+        `https://vuebook-tracker-production.up.railway.app/books/${id}`,
         {
           method: 'DELETE'
         }
@@ -56,7 +56,7 @@ const filteredBooks = computed(() => {
 //wykonaj ten kod, gdy komponent zostanie zamontowany w DOM.
 onMounted(async () => {
   const response = await fetch(
-      'https://javabook-tracker-production.up.railway.app/books'
+      'https://vuebook-tracker-production.up.railway.app/books'
   )
 
   books.value = await response.json()
